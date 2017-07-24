@@ -26,7 +26,6 @@
 
 </head>
 
-<body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -59,16 +58,41 @@
         </div>
         <!-- /.container -->
     </nav>
-
+<body>
     <!-- Full Width Image Header -->
     <header class="header-image">
         <div class="headline">
             <div class="container">
                 <h1>Mama Empanadas!</h1>
                 <h2>Filipino emapanadas from our home to yours!</h2>
+              </div>
             </div>
         </div>
     </header>
+
+    <script src="js/jquery.js"></script>
+    <script>
+    	jQuery('body').css('display','none');
+    	jQuery(document).ready(function() {
+    		jQuery('body').fadeIn();
+    		jQuery('a').on('click',function(event){
+    			var thetarget = this.getAttribute('target')
+    			if (thetarget != "_blank"){
+    				var thehref = this.getAttribute('href')
+    				event.preventDefault();
+    				jQuery('body').fadeOut(function(){
+    					//alert(thehref)
+    					window.location = thehref
+    				});
+    			}
+    		});
+    	});
+    	setTimeout(function(){
+    		jQuery('body').fadeIn();
+    	},1000)
+    </script>
+    <div id="wrapper">
+    </div>
 
     <!-- Page Content -->
     <div class="container">

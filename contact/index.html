@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <br />
+<body>
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -49,6 +50,30 @@
     </div>
     <!-- /.container -->
 </nav>
+
+<script src="js/jquery.js"></script>
+<script>
+  jQuery('body').css('display','none');
+  jQuery(document).ready(function() {
+    jQuery('body').fadeIn();
+    jQuery('a').on('click',function(event){
+      var thetarget = this.getAttribute('target')
+      if (thetarget != "_blank"){
+        var thehref = this.getAttribute('href')
+        event.preventDefault();
+        jQuery('body').fadeOut(function(){
+          //alert(thehref)
+          window.location = thehref
+        });
+      }
+    });
+  });
+  setTimeout(function(){
+    jQuery('body').fadeIn();
+  },1000)
+</script>
+<div id="wrapper">
+</div>
 
 <div class="orderHead">
   <h1>Place your order here!</h1>
@@ -113,5 +138,10 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgIOF1hLT-MEtaHE1cwPiENstrkGmzF8E&callback=initMap">
     </script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
 </html>
